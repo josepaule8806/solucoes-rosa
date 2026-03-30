@@ -15,7 +15,7 @@ const ServicesSection = () => {
     <section id="servicos" className="bg-muted py-20 md:py-28">
       <div className="container mx-auto px-6">
         <div className="mb-14 text-center">
-          <span className="mb-2 inline-block font-heading text-sm font-semibold uppercase tracking-widest text-primary">
+          <span className="mb-2 inline-block font-heading text-sm font-semibold uppercase tracking-widest text-accent">
             O que fazemos
           </span>
           <h2 className="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl">
@@ -32,7 +32,7 @@ const ServicesSection = () => {
               key={service.title}
               className="group rounded-2xl bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:shadow-elevated"
             >
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-accent transition-colors group-hover:bg-gradient-primary">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-secondary transition-colors group-hover:bg-gradient-primary">
                 <service.icon className="h-7 w-7 text-primary transition-colors group-hover:text-primary-foreground" />
               </div>
               <h3 className="mb-3 font-heading text-xl font-bold text-foreground">{service.title}</h3>

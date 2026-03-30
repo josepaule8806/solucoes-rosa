@@ -7,14 +7,10 @@ const CtaSection = () => {
         <h2 className="mb-6 font-heading text-3xl font-bold text-primary-foreground md:text-5xl">
           Pronto para resolver seu problema?
         </h2>
-        <p className="mx-auto mb-10 max-w-2xl text-lg text-primary-foreground/90">
+        <p className="mx-auto mb-10 max-w-2xl text-lg text-blue-200">
           Entre em contato agora mesmo e solicite seu orçamento sem compromisso. Nossa equipe está pronta para atender você!
         </p>
-        <WhatsAppButton
-          text="Falar no WhatsApp"
-          variant="outline"
-          className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-        />
+        <WhatsAppButton text="Falar no WhatsApp" />
       </div>
     </section>
   );
