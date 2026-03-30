@@ -13,7 +13,7 @@ const DifferentialsSection = () => {
     <section className="py-20 md:py-28">
       <div className="container mx-auto px-6">
         <div className="mb-14 text-center">
-          <span className="mb-2 inline-block font-heading text-sm font-semibold uppercase tracking-widest text-primary">
+          <span className="mb-2 inline-block font-heading text-sm font-semibold uppercase tracking-widest text-accent">
             Por que nos escolher
           </span>
           <h2 className="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl">
@@ -24,7 +24,7 @@ const DifferentialsSection = () => {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           {differentials.map((item) => (
             <div key={item.title} className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary">
                 <item.icon className="h-8 w-8 text-primary" />
               </div>
               <h3 className="mb-2 font-heading text-lg font-bold text-foreground">{item.title}</h3>
