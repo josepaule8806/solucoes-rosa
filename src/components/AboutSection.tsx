@@ -1,5 +1,3 @@
-import { ShieldCheck, Award, Users } from "lucide-react";
-
 import { ShieldCheck, Award, Users, Sun } from "lucide-react";
 
 const stats = [
