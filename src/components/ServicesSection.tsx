@@ -1,13 +1,13 @@
-import { Wrench, Settings, Home, Building2, ClipboardList, Lightbulb } from "lucide-react";
+import { Zap, Sun, Home, Building2, Wrench, HardHat } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
 
 const services = [
-  { icon: Wrench, title: "Manutenção", description: "Manutenção preventiva e corretiva com agilidade e qualidade para garantir o bom funcionamento." },
-  { icon: Settings, title: "Instalação", description: "Instalação profissional de equipamentos e sistemas com precisão e segurança." },
-  { icon: Lightbulb, title: "Reparos", description: "Reparos rápidos e eficientes para resolver seus problemas com qualidade garantida." },
+  { icon: Zap, title: "Instalação Elétrica", description: "Instalação elétrica residencial e comercial com segurança e precisão profissional." },
+  { icon: Sun, title: "Energia Solar Fotovoltaica", description: "Instalação de módulos fotovoltaicos para economia e sustentabilidade. Mais de 1.000 projetos realizados." },
+  { icon: HardHat, title: "Estruturas de Telhado", description: "Construção e reparo de telhados, incluindo estruturas, telhas e impermeabilização." },
+  { icon: Wrench, title: "Manutenção Elétrica", description: "Manutenção preventiva e corretiva para garantir o funcionamento seguro das instalações." },
   { icon: Home, title: "Serviços Residenciais", description: "Soluções completas para sua casa, do básico ao complexo, com cuidado e atenção." },
   { icon: Building2, title: "Serviços Empresariais", description: "Atendimento especializado para empresas com foco em produtividade e resultado." },
-  { icon: ClipboardList, title: "Consultoria", description: "Consultoria técnica para encontrar as melhores soluções para o seu projeto." },
 ];
 
 const ServicesSection = () => {
