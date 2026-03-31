@@ -1,4 +1,5 @@
 import { ShieldCheck, Award, Users, Sun } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const stats = [
   { icon: Award, label: "Anos no Mercado", value: "5+" },
@@ -12,7 +13,7 @@ const AboutSection = () => {
     <section id="sobre" className="py-20 md:py-28">
       <div className="container mx-auto px-6">
         <div className="grid gap-12 md:grid-cols-2 items-center">
-          <div>
+          <ScrollReveal>
             <span className="mb-2 inline-block font-heading text-sm font-semibold uppercase tracking-widest text-accent">
               Sobre nós
             </span>
@@ -28,22 +29,21 @@ const AboutSection = () => {
             <p className="mb-8 text-muted-foreground leading-relaxed">
               Nosso nome é bem visto no mercado, com um número crescente de clientes satisfeitos. Trabalhamos com transparência, pontualidade e compromisso.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid gap-6">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="flex items-center gap-5 rounded-2xl bg-card p-6 shadow-card transition-all hover:shadow-elevated"
-              >
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-secondary">
-                  <stat.icon className="h-7 w-7 text-primary" />
+            {stats.map((stat, i) => (
+              <ScrollReveal key={stat.label} delay={i * 100}>
+                <div className="flex items-center gap-5 rounded-2xl bg-card p-6 shadow-card transition-all hover:shadow-elevated">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-secondary">
+                    <stat.icon className="h-7 w-7 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-heading text-2xl font-bold text-foreground">{stat.value}</p>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-heading text-2xl font-bold text-foreground">{stat.value}</p>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
