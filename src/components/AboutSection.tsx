@@ -1,9 +1,12 @@
 import { ShieldCheck, Award, Users } from "lucide-react";
 
+import { ShieldCheck, Award, Users, Sun } from "lucide-react";
+
 const stats = [
-  { icon: ShieldCheck, label: "Qualidade Garantida", value: "100%" },
-  { icon: Award, label: "Anos de Experiência", value: "10+" },
+  { icon: Award, label: "Anos no Mercado", value: "5+" },
+  { icon: Sun, label: "Projetos Fotovoltaicos", value: "1.000+" },
   { icon: Users, label: "Clientes Satisfeitos", value: "500+" },
+  { icon: ShieldCheck, label: "Qualidade Garantida", value: "100%" },
 ];
 
 const AboutSection = () => {
