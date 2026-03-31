@@ -22,7 +22,7 @@ const ServicesSection = () => {
             Nossos Serviços
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            Oferecemos uma gama completa de serviços profissionais para atender todas as suas necessidades.
+            Especializados em instalações elétricas, energia solar fotovoltaica e estruturas de telhado em Porto Alegre e região.
           </p>
         </div>
 
