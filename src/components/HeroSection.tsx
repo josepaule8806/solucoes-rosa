@@ -18,7 +18,7 @@ const HeroSection = () => {
             <span className="text-accent">qualidade e confiança</span>
           </h1>
           <p className="mb-10 max-w-xl text-lg text-primary-foreground/85 md:text-xl">
-            Atendemos empresas e residências com serviços profissionais e atendimento rápido. Solicite seu orçamento sem compromisso.
+            Especialistas em instalações elétricas, energia solar fotovoltaica e estruturas de telhado em Porto Alegre. Mais de 5 anos no mercado e 1.000+ projetos realizados.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <WhatsAppButton />

@@ -25,13 +25,13 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Instagram className="h-4 w-4 text-accent" />
-                <a href="https://instagram.com/rosasolucoesoficial" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  @rosasolucoesoficial
+                <a href="https://instagram.com/solucoes.rosa" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                  @solucoes.rosa
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-accent" />
-                <span>Sua Cidade - Estado</span>
+                <span>Porto Alegre - RS</span>
               </li>
             </ul>
           </div>
