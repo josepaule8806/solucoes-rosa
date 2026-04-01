@@ -1,9 +1,18 @@
-import { ArrowLeft } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, X, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollReveal from "@/components/ScrollReveal";
+import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 import portfolio1 from "@/assets/portfolio-1.jpg";
 import portfolio2 from "@/assets/portfolio-2.jpg";
@@ -16,58 +25,115 @@ import solarLimpeza from "@/assets/solar-limpeza.jpg";
 import solarDepois from "@/assets/solar-depois.jpg";
 
 interface Project {
-  title: string;
+  id: number;
+  category: string;
+  serviceTitle: string;
+  clientName: string;
+  coverImage: string;
+  galleryImages: { src: string; label?: string }[];
   description: string;
-  images: { src: string; label?: string }[];
 }
 
 const projects: Project[] = [
   {
-    title: "Limpeza de Placas Solares",
-    description: "Serviço completo de limpeza profissional para máxima eficiência dos módulos fotovoltaicos.",
-    images: [
+    id: 1,
+    category: "Placas Solares",
+    serviceTitle: "Limpeza de Placas Solares",
+    clientName: "Jeff",
+    coverImage: solarDepois,
+    galleryImages: [
       { src: solarAntes, label: "Antes" },
       { src: solarLimpeza, label: "Limpeza" },
       { src: solarDepois, label: "Depois" },
     ],
+    description:
+      "Serviço completo de limpeza profissional para máxima eficiência dos módulos fotovoltaicos. Remoção de sujeira, poeira e resíduos que reduzem a geração de energia.",
   },
   {
-    title: "Instalação de Equipamentos",
-    description: "Instalação profissional de equipamentos elétricos com segurança e precisão.",
-    images: [{ src: portfolio1 }],
+    id: 2,
+    category: "Elétrica",
+    serviceTitle: "Instalação de Equipamentos",
+    clientName: "Carlos",
+    coverImage: portfolio1,
+    galleryImages: [
+      { src: portfolio1 },
+      { src: portfolio2 },
+    ],
+    description:
+      "Instalação profissional de equipamentos elétricos com segurança e precisão. Seguindo todas as normas técnicas e garantindo o funcionamento perfeito.",
   },
   {
-    title: "Manutenção Elétrica",
-    description: "Manutenção preventiva e corretiva em instalações elétricas residenciais e comerciais.",
-    images: [{ src: portfolio2 }],
+    id: 3,
+    category: "Elétrica",
+    serviceTitle: "Manutenção Elétrica Preventiva",
+    clientName: "Ana",
+    coverImage: portfolio2,
+    galleryImages: [
+      { src: portfolio2 },
+      { src: portfolio3 },
+    ],
+    description:
+      "Manutenção preventiva e corretiva em instalações elétricas residenciais e comerciais. Prevenção de falhas e aumento da vida útil do sistema.",
   },
   {
-    title: "Projeto Residencial",
-    description: "Projeto elétrico residencial completo, do planejamento à execução.",
-    images: [{ src: portfolio3 }],
+    id: 4,
+    category: "Reformas",
+    serviceTitle: "Reforma de Banheiro Completa",
+    clientName: "Mariana",
+    coverImage: portfolio4,
+    galleryImages: [
+      { src: portfolio4 },
+      { src: portfolio5 },
+      { src: portfolio6 },
+    ],
+    description:
+      "Reforma completa com instalações hidráulicas e elétricas, acabamento profissional com atenção aos detalhes e materiais de qualidade.",
   },
   {
-    title: "Reforma de Banheiro",
-    description: "Reforma completa com instalações hidráulicas e elétricas.",
-    images: [{ src: portfolio4 }],
+    id: 5,
+    category: "Reformas",
+    serviceTitle: "Projeto Residencial",
+    clientName: "Roberto",
+    coverImage: portfolio3,
+    galleryImages: [
+      { src: portfolio3 },
+      { src: portfolio5 },
+    ],
+    description:
+      "Projeto elétrico residencial completo, do planejamento à execução. Soluções sob medida para cada ambiente da casa.",
   },
   {
-    title: "Projeto Empresarial",
-    description: "Soluções elétricas para empresas com foco em segurança e produtividade.",
-    images: [{ src: portfolio5 }],
-  },
-  {
-    title: "Acabamento e Pintura",
-    description: "Acabamento profissional com atenção aos detalhes.",
-    images: [{ src: portfolio6 }],
+    id: 6,
+    category: "Elétrica",
+    serviceTitle: "Projeto Empresarial",
+    clientName: "Empresa TechPoa",
+    coverImage: portfolio5,
+    galleryImages: [
+      { src: portfolio5 },
+      { src: portfolio6 },
+      { src: portfolio1 },
+    ],
+    description:
+      "Soluções elétricas completas para empresas com foco em segurança, produtividade e eficiência energética.",
   },
 ];
 
+const categories = ["Todos", ...Array.from(new Set(projects.map((p) => p.category)))];
+
 const Portfolio = () => {
+  const [activeCategory, setActiveCategory] = useState("Todos");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const filtered =
+    activeCategory === "Todos"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
+
   return (
     <div className="min-h-screen">
       <Navbar />
 
+      {/* Hero */}
       <section className="bg-primary pt-28 pb-16">
         <div className="container mx-auto px-6 text-center">
           <Link
@@ -86,48 +152,117 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Filters + Grid */}
       <section className="bg-background py-16 md:py-24">
-        <div className="container mx-auto px-6 space-y-20">
-          {projects.map((project, pi) => (
-            <ScrollReveal key={project.title} delay={pi * 60}>
-              <div>
-                <h2 className="mb-2 font-heading text-2xl font-bold text-foreground">
-                  {project.title}
-                </h2>
-                <p className="mb-6 max-w-xl text-muted-foreground">
-                  {project.description}
-                </p>
-                <div
-                  className={`grid gap-4 ${
-                    project.images.length === 1
-                      ? "grid-cols-1 max-w-lg"
-                      : project.images.length === 2
-                      ? "grid-cols-2"
-                      : "grid-cols-1 sm:grid-cols-3"
-                  }`}
+        <div className="container mx-auto px-6">
+          {/* Category Pills */}
+          <div className="mb-12 flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`shrink-0 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ${
+                  activeCategory === cat
+                    ? "bg-primary text-primary-foreground shadow-md"
+                    : "bg-muted text-muted-foreground hover:bg-muted/80"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Project Grid */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filtered.map((project, i) => (
+              <ScrollReveal key={project.id} delay={i * 60}>
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="group w-full overflow-hidden rounded-2xl bg-card text-left shadow-card transition-all duration-300 hover:scale-[1.03] hover:shadow-elevated focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
-                  {project.images.map((img, i) => (
-                    <div key={i} className="group relative overflow-hidden rounded-2xl shadow-card">
-                      <img
-                        src={img.src}
-                        alt={`${project.title} ${img.label || i + 1}`}
-                        loading="lazy"
-                        className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      {img.label && (
-                        <span className="absolute left-3 top-3 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow-lg">
-                          {img.label}
-                        </span>
-                      )}
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={project.coverImage}
+                      alt={project.serviceTitle}
+                      loading="lazy"
+                      className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <Badge className="absolute right-3 top-3 bg-primary/90 text-primary-foreground backdrop-blur-sm">
+                      {project.category}
+                    </Badge>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-heading text-lg font-bold text-foreground">
+                      {project.serviceTitle}
+                    </h3>
+                    <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+                      <User className="h-3.5 w-3.5" />
+                      {project.clientName}
                     </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
+                  </div>
+                </button>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {filtered.length === 0 && (
+            <p className="mt-12 text-center text-muted-foreground">
+              Nenhum projeto encontrado nesta categoria.
+            </p>
+          )}
         </div>
       </section>
 
+      {/* Project Detail Modal */}
+      <Dialog
+        open={!!selectedProject}
+        onOpenChange={(open) => !open && setSelectedProject(null)}
+      >
+        <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto">
+          {selectedProject && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="font-heading text-2xl">
+                  {selectedProject.serviceTitle}
+                </DialogTitle>
+                <DialogDescription className="flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  Cliente: {selectedProject.clientName}
+                </DialogDescription>
+              </DialogHeader>
+
+              <p className="text-muted-foreground">
+                {selectedProject.description}
+              </p>
+
+              <div
+                className={`grid gap-3 ${
+                  selectedProject.galleryImages.length === 2
+                    ? "grid-cols-2"
+                    : "grid-cols-1 sm:grid-cols-3"
+                }`}
+              >
+                {selectedProject.galleryImages.map((img, i) => (
+                  <div key={i} className="relative overflow-hidden rounded-xl">
+                    <img
+                      src={img.src}
+                      alt={`${selectedProject.serviceTitle} ${img.label || i + 1}`}
+                      className="aspect-[4/3] w-full object-cover"
+                    />
+                    {img.label && (
+                      <span className="absolute left-2 top-2 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow-lg">
+                        {img.label}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      {/* CTA */}
       <section className="bg-primary py-16">
         <div className="container mx-auto px-6 text-center">
           <h2 className="mb-4 font-heading text-2xl font-bold text-primary-foreground md:text-3xl">
