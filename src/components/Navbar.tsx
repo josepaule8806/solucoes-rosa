@@ -42,16 +42,27 @@ const Navbar = () => {
 
       {open && (
         <div className="md:hidden border-t border-border bg-background px-6 pb-6 pt-4">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="block py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            'isRoute' in l && l.isRoute ? (
+              <Link
+                key={l.href}
+                to={l.href}
+                onClick={() => setOpen(false)}
+                className="block py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="block py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <div className="mt-4">
             <WhatsAppButton text="WhatsApp" className="w-full justify-center py-3 text-sm" />
           </div>
