@@ -1,18 +1,18 @@
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import portfolio1 from "@/assets/portfolio-1.jpg";
 import portfolio2 from "@/assets/portfolio-2.jpg";
 import portfolio3 from "@/assets/portfolio-3.jpg";
-import portfolio4 from "@/assets/portfolio-4.jpg";
-import portfolio5 from "@/assets/portfolio-5.jpg";
-import portfolio6 from "@/assets/portfolio-6.jpg";
+import solarAntes from "@/assets/solar-antes.jpg";
+import solarDepois from "@/assets/solar-depois.jpg";
 import ScrollReveal from "./ScrollReveal";
 
-const images = [
+const preview = [
+  { src: solarAntes, alt: "Limpeza solar - Antes" },
+  { src: solarDepois, alt: "Limpeza solar - Depois" },
   { src: portfolio1, alt: "Instalação de equipamentos" },
   { src: portfolio2, alt: "Manutenção elétrica" },
-  { src: portfolio3, alt: "Projeto residencial concluído" },
-  { src: portfolio4, alt: "Reforma de banheiro" },
-  { src: portfolio5, alt: "Projeto empresarial" },
-  { src: portfolio6, alt: "Acabamento e pintura" },
+  { src: portfolio3, alt: "Projeto residencial" },
 ];
 
 const PortfolioSection = () => {
@@ -34,7 +34,7 @@ const PortfolioSection = () => {
         </ScrollReveal>
 
         <div className="grid gap-4 grid-cols-2 lg:grid-cols-3">
-          {images.map((img, i) => (
+          {preview.map((img, i) => (
             <ScrollReveal key={img.alt} delay={i * 80}>
               <div className="group overflow-hidden rounded-2xl">
                 <img
@@ -49,6 +49,18 @@ const PortfolioSection = () => {
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal delay={200}>
+          <div className="mt-10 text-center">
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-heading font-bold text-primary-foreground shadow-elevated transition-all hover:scale-105 hover:brightness-110"
+            >
+              Ver todos os trabalhos
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
