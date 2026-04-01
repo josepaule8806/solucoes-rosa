@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import WhatsAppButton from "./WhatsAppButton";
 
 const navLinks = [
   { href: "#sobre", label: "Sobre" },
   { href: "#servicos", label: "Serviços" },
-  { href: "#portfolio", label: "Portfólio" },
+  { href: "/portfolio", label: "Portfólio", isRoute: true },
 ];
 
 const Navbar = () => {
