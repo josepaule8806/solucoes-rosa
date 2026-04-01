@@ -21,11 +21,17 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            'isRoute' in l && l.isRoute ? (
+              <Link key={l.href} to={l.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+                {l.label}
+              </Link>
+            ) : (
+              <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+                {l.label}
+              </a>
+            )
+          )}
           <WhatsAppButton text="WhatsApp" className="px-5 py-2.5 text-sm" />
         </div>
 
