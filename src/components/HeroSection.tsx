@@ -7,7 +7,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img src={heroBg} alt="Soluções Rosa workspace" width={1920} height={1080} className="h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/95 via-blue-800/90 to-blue-700/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-900/75 to-blue-800/50" />
       </div>
 
       <div className="relative z-10 container mx-auto px-6 py-24 md:py-32">
