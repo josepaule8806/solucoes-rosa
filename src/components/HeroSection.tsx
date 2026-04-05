@@ -1,12 +1,26 @@
+import { useEffect, useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import logo from "@/assets/logo.png";
 import WhatsAppButton from "./WhatsAppButton";
 
 const HeroSection = () => {
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (imgRef.current) {
+        const scrollY = window.scrollY;
+        imgRef.current.style.transform = `translateY(${scrollY * 0.35}px) scale(1.1)`;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="Soluções Rosa workspace" width={1920} height={1080} className="h-full w-full object-cover" />
+        <img ref={imgRef} src={heroBg} alt="Soluções Rosa workspace" width={1920} height={1080} className="h-full w-full object-cover will-change-transform scale-110" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/95 via-[#0a1628]/85 to-[#0a1628]/65" />
       </div>
 
