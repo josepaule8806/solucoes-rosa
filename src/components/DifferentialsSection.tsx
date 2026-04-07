@@ -5,7 +5,7 @@ const differentials = [
   { icon: Zap, title: "Atendimento Rápido", description: "Respondemos e agendamos com agilidade para não deixar você esperando." },
   { icon: UserCheck, title: "Profissionais Qualificados", description: "Equipe treinada e experiente para entregar o melhor resultado." },
   { icon: FileCheck, title: "Orçamento sem Compromisso", description: "Solicite seu orçamento gratuitamente e sem nenhuma obrigação." },
-  { icon: MapPin, title: "Atendimento na Região", description: "Estamos próximos de você, com cobertura em toda a região." },
+  { icon: MapPin, title: "Atendimento na Região", description: "{ icon: MapPin, title: "Atendimento em Porto Alegre e Região", description: "Cobertura em Porto Alegre e toda a região metropolitana." }," },
   { icon: ThumbsUp, title: "Qualidade Garantida", description: "Garantimos a qualidade de todos os nossos serviços realizados." },
 ];
 
