@@ -54,11 +54,11 @@ const SolutionPitch = () => {
               <div className="absolute -inset-4 rounded-3xl bg-secondary blur-2xl opacity-50" />
               <div className="relative z-10 overflow-hidden rounded-3xl shadow-elevated transition-transform hover:scale-[1.01] duration-700">
                 <img 
-                  src="/assets/hero-banner.png" 
+                  src={image} 
                   alt="Instalação de painéis solares profissional" 
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover aspect-video"
                   width={800}
-                  height={1000}
+                  height={450}
                 />
                 <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/90 p-6 backdrop-blur-md shadow-lg border border-white/20">
                   <div className="flex items-center gap-4">
