@@ -3,7 +3,9 @@
     "title": "Cansado de pagar caro por uma energia que só aumenta?",
     "subtitle": "A inflação energética no Brasil não para, e sua conta de luz é a primeira a sentir o peso. Você está literalmente jogando dinheiro fora todos os meses.",
     "agitation": "Além do custo financeiro, a insegurança de instalações mal feitas pode colocar sua família ou empresa em risco. Você merece uma solução que combine economia real com segurança absoluta.",
-    "image": "/assets/uploads/gemini_generated_image_7h7q8i7h7q8i7h7q.png"
+    "image": "/assets/uploads/gemini_generated_image_7h7q8i7h7q8i7h7q.png",
+    "bridge_title": "A boa notícia? Você não precisa mais ser refém.",
+    "bridge_text": "A solução definitiva para os aumentos abusivos está literalmente acima da sua cabeça. Transforme seu telhado em uma usina de lucro e liberdade."
   },
   "how_it_works": [
     {
@@ -26,5 +28,32 @@
       "step_desc": "Assim que ligado, sua conta de luz cai em até 95%. Sustentabilidade que se paga.",
       "icon": "TrendingDown"
     }
-  ]
+  ],
+  "solution": {
+    "title": "Rosa Solares: Sua parceira na revolução energética",
+    "subtitle": "Não entregamos apenas placas, entregamos independência. Nossa equipe cuida de tudo, desde o projeto de engenharia até a homologação junto à concessionária.",
+    "image": "/assets/hero-banner.png",
+    "benefits": [
+      {
+        "title": "Economia que se paga",
+        "description": "Recupere seu investimento em tempo recorde através da redução imediata de até 95% na fatura mensal.",
+        "icon": "TrendingUp"
+      },
+      {
+        "title": "Segurança Absoluta",
+        "description": "Instalações seguindo rigorosamente as normas técnicas (NR10/NR35) com componentes de primeira linha.",
+        "icon": "ShieldCheck"
+      },
+      {
+        "title": "Sustentabilidade Inteligente",
+        "description": "Gere sua própria energia limpa e reduza sua pegada de carbono enquanto economiza dinheiro.",
+        "icon": "Leaf"
+      },
+      {
+        "title": "Valorização Imediata",
+        "description": "Imóveis com sistema solar instalado têm valor de revenda até 6% maior no mercado atual.",
+        "icon": "CheckCircle2"
+      }
+    ]
+  }
 }

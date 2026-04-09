@@ -1,30 +1,16 @@
-import { CheckCircle2, TrendingUp, ShieldCheck, Leaf } from "lucide-react";
+import * as Icons from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import WhatsAppButton from "./WhatsAppButton";
+import sectionsData from "@/content/sections.json";
 
 const SolutionPitch = () => {
-  const benefits = [
-    {
-      icon: TrendingUp,
-      title: "Economia que se paga",
-      description: "Recupere seu investimento em tempo recorde através da redução imediata de até 95% na fatura mensal."
-    },
-    {
-      icon: ShieldCheck,
-      title: "Segurança Absoluta",
-      description: "Instalações seguindo rigorosamente as normas técnicas (NR10/NR35) com componentes de primeira linha."
-    },
-    {
-      icon: Leaf,
-      title: "Sustentabilidade Inteligente",
-      description: "Gere sua própria energia limpa e reduza sua pegada de carbono enquanto economiza dinheiro."
-    },
-    {
-      icon: CheckCircle2,
-      title: "Valorização Imediata",
-      description: "Imóveis com sistema solar instalado têm valor de revenda até 6% maior no mercado atual."
-    }
-  ];
+  const { solution } = sectionsData;
+  const { title, subtitle, image, benefits } = solution;
+
+  const getIcon = (iconName: string) => {
+    const Icon = (Icons as any)[iconName] || Icons.CheckCircle2;
+    return Icon;
+  };
 
   return (
     <section id="solucao" className="bg-white py-20 md:py-28 overflow-hidden">
@@ -36,22 +22,25 @@ const SolutionPitch = () => {
                 A Solução Ideal
               </span>
               <h2 className="mb-8 font-heading text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
-                Rosa Solares: Sua parceira na <span className="text-gradient">revolução energética</span>
+                {title}
               </h2>
               <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
-                Não entregamos apenas placas, entregamos independência. Nossa equipe cuida de tudo, desde o projeto de engenharia até a homologação junto à concessionária.
+                {subtitle}
               </p>
               
               <div className="grid gap-6 sm:grid-cols-2">
-                {benefits.map((benefit, i) => (
-                  <div key={benefit.title} className="flex flex-col gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <benefit.icon className="h-6 w-6" />
+                {benefits.map((benefit: any, i: number) => {
+                  const Icon = getIcon(benefit.icon);
+                  return (
+                    <div key={i} className="flex flex-col gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="font-heading font-bold text-foreground">{benefit.title}</h3>
+                      <p className="text-sm text-muted-foreground">{benefit.description}</p>
                     </div>
-                    <h3 className="font-heading font-bold text-foreground">{benefit.title}</h3>
-                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               <div className="mt-12">

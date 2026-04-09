@@ -39,6 +39,8 @@ collections:
               - { label: "Subtítulo de Impacto", name: "subtitle", widget: "text" }
               - { label: "Texto de Agitação da Dor", name: "agitation", widget: "text" }
               - { label: "Imagem Ilustrativa", name: "image", widget: "image" }
+              - { label: "Título da Ponte (Transição)", name: "bridge_title", widget: "string" }
+              - { label: "Texto da Ponte (Transição)", name: "bridge_text", widget: "text" }
           
           - label: "Como Funciona (Passos)"
             name: "how_it_works"
@@ -47,6 +49,21 @@ collections:
               - { label: "Título do Passo", name: "step_title", widget: "string" }
               - { label: "Descrição", name: "step_desc", widget: "text" }
               - { label: "Ícone", name: "icon", widget: "select", options: ["ClipboardCheck", "Wrench", "Sun", "TrendingDown", "Zap"] }
+          
+          - label: "Seção de Solução (Benefícios)"
+            name: "solution"
+            widget: "object"
+            fields:
+              - { label: "Título Principal", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "text" }
+              - { label: "Imagem Lateral", name: "image", widget: "image" }
+              - label: "Benefícios em Destaque"
+                name: "benefits"
+                widget: "list"
+                fields:
+                  - { label: "Título do Benefício", name: "title", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
+                  - { label: "Ícone", name: "icon", widget: "select", options: ["TrendingUp", "ShieldCheck", "Leaf", "CheckCircle2", "Zap", "Sun"] }
 
   - name: "services"
     label: "Serviços"

@@ -46,10 +46,10 @@ const ProblemSection = () => {
             <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
             <div className="relative z-10">
               <h3 className="mb-4 font-heading text-2xl font-bold md:text-3xl">
-                A boa notícia? Você não precisa mais ser refém.
+                {problem.bridge_title}
               </h3>
               <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/80">
-                A solução definitiva para os aumentos abusivos está literalmente acima da sua cabeça. Transforme seu telhado em uma usina de lucro e liberdade.
+                {problem.bridge_text}
               </p>
               <a 
                 href="#solucao" 
