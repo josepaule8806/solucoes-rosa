@@ -14,15 +14,13 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
-import portfolio1 from "@/assets/portfolio-1.jpg";
-import portfolio2 from "@/assets/portfolio-2.jpg";
-import portfolio3 from "@/assets/portfolio-3.jpg";
-import portfolio4 from "@/assets/portfolio-4.jpg";
-import portfolio5 from "@/assets/portfolio-5.jpg";
-import portfolio6 from "@/assets/portfolio-6.jpg";
-import solarAntes from "@/assets/solar-antes.jpg";
-import solarLimpeza from "@/assets/solar-limpeza.jpg";
-import solarDepois from "@/assets/solar-depois.jpg";
+const portfolioFiles = import.meta.glob("@/content/portfolio/*.json", { eager: true });
+const projectsFromCMS = Object.values(portfolioFiles).map((file: any, index: number) => ({
+  id: index + 1,
+  ...(file.default || file)
+}));
+
+const projects = projectsFromCMS;
 
 interface Project {
   id: number;
@@ -34,89 +32,7 @@ interface Project {
   description: string;
 }
 
-const projects: Project[] = [
-  {
-    id: 1,
-    category: "Placas Solares",
-    serviceTitle: "Limpeza de Placas Solares",
-    clientName: "Jeff",
-    coverImage: solarDepois,
-    galleryImages: [
-      { src: solarAntes, label: "Antes" },
-      { src: solarLimpeza, label: "Limpeza" },
-      { src: solarDepois, label: "Depois" },
-    ],
-    description:
-      "Serviço completo de limpeza profissional para máxima eficiência dos módulos fotovoltaicos. Remoção de sujeira, poeira e resíduos que reduzem a geração de energia.",
-  },
-  {
-    id: 2,
-    category: "Elétrica",
-    serviceTitle: "Instalação de Equipamentos",
-    clientName: "Carlos",
-    coverImage: portfolio1,
-    galleryImages: [
-      { src: portfolio1 },
-      { src: portfolio2 },
-    ],
-    description:
-      "Instalação profissional de equipamentos elétricos com segurança e precisão. Seguindo todas as normas técnicas e garantindo o funcionamento perfeito.",
-  },
-  {
-    id: 3,
-    category: "Elétrica",
-    serviceTitle: "Manutenção Elétrica Preventiva",
-    clientName: "Ana",
-    coverImage: portfolio2,
-    galleryImages: [
-      { src: portfolio2 },
-      { src: portfolio3 },
-    ],
-    description:
-      "Manutenção preventiva e corretiva em instalações elétricas residenciais e comerciais. Prevenção de falhas e aumento da vida útil do sistema.",
-  },
-  {
-    id: 4,
-    category: "Reformas",
-    serviceTitle: "Reforma de Banheiro Completa",
-    clientName: "Mariana",
-    coverImage: portfolio4,
-    galleryImages: [
-      { src: portfolio4 },
-      { src: portfolio5 },
-      { src: portfolio6 },
-    ],
-    description:
-      "Reforma completa com instalações hidráulicas e elétricas, acabamento profissional com atenção aos detalhes e materiais de qualidade.",
-  },
-  {
-    id: 5,
-    category: "Reformas",
-    serviceTitle: "Projeto Residencial",
-    clientName: "Roberto",
-    coverImage: portfolio3,
-    galleryImages: [
-      { src: portfolio3 },
-      { src: portfolio5 },
-    ],
-    description:
-      "Projeto elétrico residencial completo, do planejamento à execução. Soluções sob medida para cada ambiente da casa.",
-  },
-  {
-    id: 6,
-    category: "Elétrica",
-    serviceTitle: "Projeto Empresarial",
-    clientName: "Empresa TechPoa",
-    coverImage: portfolio5,
-    galleryImages: [
-      { src: portfolio5 },
-      { src: portfolio6 },
-      { src: portfolio1 },
-    ],
-    description:
-      "Soluções elétricas completas para empresas com foco em segurança, produtividade e eficiência energética.",
-  },
-];
+
 
 const categories = ["Todos", ...Array.from(new Set(projects.map((p) => p.category)))];
 

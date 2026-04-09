@@ -1,19 +1,15 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import portfolio1 from "@/assets/portfolio-1.jpg";
-import portfolio2 from "@/assets/portfolio-2.jpg";
-import portfolio3 from "@/assets/portfolio-3.jpg";
-import solarAntes from "@/assets/solar-antes.jpg";
-import solarDepois from "@/assets/solar-depois.jpg";
 import ScrollReveal from "./ScrollReveal";
 
-const preview = [
-  { src: solarAntes, alt: "Limpeza solar - Antes" },
-  { src: solarDepois, alt: "Limpeza solar - Depois" },
-  { src: portfolio1, alt: "Instalação de equipamentos" },
-  { src: portfolio2, alt: "Manutenção elétrica" },
-  { src: portfolio3, alt: "Projeto residencial" },
-];
+const portfolioFiles = import.meta.glob("@/content/portfolio/*.json", { eager: true });
+const preview = Object.values(portfolioFiles)
+  .map((file: any) => file.default || file)
+  .slice(0, 6)
+  .map(project => ({
+    src: project.coverImage,
+    alt: project.serviceTitle
+  }));
 
 const PortfolioSection = () => {
   return (

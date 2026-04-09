@@ -1,0 +1,12 @@
+{
+  "serviceTitle": "Limpeza de Placas Solares",
+  "clientName": "Condomínio Horizonte",
+  "category": "Placas Solares",
+  "coverImage": "/assets/solar-depois.jpg",
+  "description": "Serviço completo de limpeza profissional para máxima eficiência dos módulos fotovoltaicos.",
+  "galleryImages": [
+    { "src": "/assets/solar-antes.jpg", "label": "Antes" },
+    { "src": "/assets/solar-limpeza.jpg", "label": "Limpeza" },
+    { "src": "/assets/solar-depois.jpg", "label": "Depois" }
+  ]
+}

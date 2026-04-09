@@ -21,7 +21,7 @@ const AboutSection = () => {
               Uma empresa comprometida com a <span className="text-gradient">excelência</span>
             </h2>
             <p className="mb-4 text-muted-foreground leading-relaxed">
-              A <strong className="text-foreground">Rosa Soluções</strong> é uma empresa especializada em <strong className="text-foreground">instalações elétricas, estruturas de telhado e energia solar fotovoltaica</strong>, A <strong className="text-foreground">Rosa Soluções</strong> é uma empresa especializada em <strong className="text-foreground">instalações elétricas, estruturas de telhado e energia solar fotovoltaica</strong>, atendendo Porto Alegre e região. Com mais de 5 anos no mercado, somos referência em qualidade e confiança. 5 anos no mercado, somos referência em qualidade e confiança.
+              A <strong className="text-foreground">Rosa Soluções</strong> é uma empresa especializada em <strong className="text-foreground">instalações elétricas, estruturas de telhado e energia solar fotovoltaica</strong>, atendendo Porto Alegre e região. Com mais de 5 anos no mercado, somos referência em qualidade e confiança. 
             </p>
             <p className="mb-4 text-muted-foreground leading-relaxed">
               Oferecemos serviços completos, desde a instalação e manutenção elétrica até a construção e reparo de telhados, incluindo estruturas, telhas e impermeabilização. Já realizamos mais de 1.000 projetos de módulos fotovoltaicos instalados.

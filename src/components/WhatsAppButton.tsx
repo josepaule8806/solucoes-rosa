@@ -1,6 +1,8 @@
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5500000000000?text=Olá! Gostaria de solicitar um orçamento.";
+import contactData from "@/content/contact.json";
+
+const WHATSAPP_URL = `https://wa.me/${contactData.whatsappNumber}?text=Olá! Gostaria de solicitar um orçamento.`;
 
 interface WhatsAppButtonProps {
   text?: string;

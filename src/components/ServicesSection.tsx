@@ -1,15 +1,14 @@
-import { Zap, Sun, Home, Building2, Wrench, HardHat } from "lucide-react";
+import * as Icons from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
 import ScrollReveal from "./ScrollReveal";
 
-const services = [
-  { icon: Zap, title: "Instalação Elétrica", description: "Instalação elétrica residencial e comercial com segurança e precisão profissional." },
-  { icon: Sun, title: "Energia Solar Fotovoltaica", description: "Instalação de módulos fotovoltaicos para economia e sustentabilidade. Mais de 1.000 projetos realizados." },
-  { icon: HardHat, title: "Estruturas de Telhado", description: "Construção e reparo de telhados, incluindo estruturas, telhas e impermeabilização." },
-  { icon: Wrench, title: "Manutenção Elétrica", description: "Manutenção preventiva e corretiva para garantir o funcionamento seguro das instalações." },
-  { icon: Home, title: "Serviços Residenciais", description: "Soluções completas para sua casa, do básico ao complexo, com cuidado e atenção." },
-  { icon: Building2, title: "Serviços Empresariais", description: "Atendimento especializado para empresas com foco em produtividade e resultado." },
-];
+const servicesFiles = import.meta.glob("@/content/services/*.json", { eager: true });
+const services = Object.values(servicesFiles).map((file: any) => file.default || file);
+
+const getIcon = (iconName: string) => {
+  const Icon = (Icons as any)[iconName] || Icons.HelpCircle;
+  return Icon;
+};
 
 const ServicesSection = () => {
   return (
@@ -30,17 +29,20 @@ const ServicesSection = () => {
         </ScrollReveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
-            <ScrollReveal key={service.title} delay={i * 100}>
-              <div className="group h-full rounded-2xl bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:shadow-elevated">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-secondary transition-colors group-hover:bg-gradient-primary">
-                  <service.icon className="h-7 w-7 text-primary transition-colors group-hover:text-primary-foreground" />
+          {services.map((service, i) => {
+            const Icon = getIcon(service.icon);
+            return (
+              <ScrollReveal key={service.title} delay={i * 100}>
+                <div className="group h-full rounded-2xl bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:shadow-elevated">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-secondary transition-colors group-hover:bg-gradient-primary">
+                    <Icon className="h-7 w-7 text-primary transition-colors group-hover:text-primary-foreground" />
+                  </div>
+                  <h3 className="mb-3 font-heading text-xl font-bold text-foreground">{service.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{service.description}</p>
                 </div>
-                <h3 className="mb-3 font-heading text-xl font-bold text-foreground">{service.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{service.description}</p>
-              </div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            );
+          })}
         </div>
 
         <ScrollReveal delay={200}>

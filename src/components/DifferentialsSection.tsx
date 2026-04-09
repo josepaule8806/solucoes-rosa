@@ -24,15 +24,15 @@ const DifferentialsSection = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-center">
           {differentials.map((item, i) => (
             <ScrollReveal key={item.title} delay={i * 100}>
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary">
+              <div className="group text-center p-6 rounded-2xl transition-all hover:bg-card hover:shadow-card">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary transition-transform group-hover:scale-110 group-hover:rotate-3">
                   <item.icon className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="mb-2 font-heading text-lg font-bold text-foreground">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <h3 className="mb-2 font-heading text-lg font-bold text-foreground transition-colors group-hover:text-primary">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
             </ScrollReveal>
           ))}

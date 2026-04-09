@@ -1,0 +1,62 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: "config"
+    label: "Configuração Geral"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "hero"
+        label: "Banner (Hero)"
+        file: "src/content/hero.json"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "text" }
+          - { label: "Imagem de Fundo", name: "backgroundImage", widget: "image" }
+          - { label: "Texto do Botão WhatsApp", name: "whatsappText", widget: "string" }
+      
+      - name: "contact"
+        label: "Contato"
+        file: "src/content/contact.json"
+        fields:
+          - { label: "Número do WhatsApp (apenas números com DDD)", name: "whatsappNumber", widget: "string" }
+
+  - name: "services"
+    label: "Serviços"
+    folder: "src/content/services"
+    create: true
+    slug: "{{title}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Descrição", name: "description", widget: "text" }
+      - label: "Ícone"
+        name: "icon"
+        widget: "select"
+        options: ["Zap", "Sun", "HardHat", "Wrench", "Home", "Building2", "ShieldCheck", "Award", "Users"]
+
+  - name: "portfolio"
+    label: "Portfólio"
+    folder: "src/content/portfolio"
+    create: true
+    slug: "{{title}}"
+    fields:
+      - { label: "Título do Serviço", name: "serviceTitle", widget: "string" }
+      - { label: "Cliente", name: "clientName", widget: "string" }
+      - label: "Categoria"
+        name: "category"
+        widget: "select"
+        options: ["Elétrica", "Placas Solares", "Reformas", "Manutenção"]
+      - { label: "Imagem de Capa", name: "coverImage", widget: "image" }
+      - { label: "Descrição Detalhada", name: "description", widget: "text" }
+      - label: "Galeria de Imagens"
+        name: "galleryImages"
+        widget: "list"
+        fields:
+          - { label: "Imagem", name: "src", widget: "image" }
+          - { label: "Legenda (Opcional)", name: "label", widget: "string", required: false }

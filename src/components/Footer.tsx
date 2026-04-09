@@ -19,8 +19,8 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-blue-200">
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4 text-accent" />
-                <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  (00) 00000-0000
+                <a href="https://wa.me/5551980196961" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                  (51) 98019-6961
                 </a>
               </li>
               <li className="flex items-center gap-2">

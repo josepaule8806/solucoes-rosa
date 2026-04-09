@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroData from "@/content/hero.json";
 import logo from "@/assets/logo.png";
 import WhatsAppButton from "./WhatsAppButton";
 
@@ -20,7 +20,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img ref={imgRef} src={heroBg} alt="Soluções Rosa workspace" width={1920} height={1080} className="h-full w-full object-cover will-change-transform scale-110" />
+        <img ref={imgRef} src={heroData.backgroundImage} alt="Soluções Rosa banner" width={1920} height={1080} className="h-full w-full object-cover will-change-transform scale-110" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/95 via-[#0a1628]/85 to-[#0a1628]/65" />
       </div>
 
@@ -32,10 +32,10 @@ const HeroSection = () => {
             <span className="text-accent">qualidade e confiança</span>
           </h1>
           <p className="mb-10 max-w-xl text-lg text-primary-foreground/85 md:text-xl">
-            Especialistas em instalações elétricas, energia solar fotovoltaica e estruturas de telhado Especialistas em instalações elétricas, energia solar fotovoltaica e estruturas de telhado em Porto Alegre e região. Mais de 5 anos no mercado e 1.000+ projetos realizados. no mercado e 1.000+ projetos realizados.
+            {heroData.subtitle}
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <WhatsAppButton />
+            <WhatsAppButton text={heroData.whatsappText} />
             <a
               href="#servicos"
               className="inline-flex items-center justify-center rounded-full border-2 border-primary-foreground/30 px-8 py-4 font-heading font-semibold text-primary-foreground backdrop-blur-sm transition-all hover:bg-primary-foreground/10"
