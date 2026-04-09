@@ -1,0 +1,30 @@
+{
+  "problem": {
+    "title": "Cansado de pagar caro por uma energia que só aumenta?",
+    "subtitle": "A inflação energética no Brasil não para, e sua conta de luz é a primeira a sentir o peso. Você está literalmente jogando dinheiro fora todos os meses.",
+    "agitation": "Além do custo financeiro, a insegurança de instalações mal feitas pode colocar sua família ou empresa em risco. Você merece uma solução que combine economia real com segurança absoluta.",
+    "image": "/assets/hero-banner.png"
+  },
+  "how_it_works": [
+    {
+      "step_title": "Visita Técnica",
+      "step_desc": "Analisamos seu consumo e a estrutura do seu telhado para dimensionar o sistema ideal.",
+      "icon": "ClipboardCheck"
+    },
+    {
+      "step_title": "Projeto Customizado",
+      "step_desc": "Engenheiros especialistas desenham a solução mais eficiente para o seu bolso.",
+      "icon": "Sun"
+    },
+    {
+      "step_title": "Instalação Ágil",
+      "step_desc": "Nossa equipe técnica executa a montagem com padrões rigorosos de segurança e limpeza.",
+      "icon": "Wrench"
+    },
+    {
+      "step_title": "Economia Imediata",
+      "step_desc": "Assim que ligado, sua conta de luz cai em até 95%. Sustentabilidade que se paga.",
+      "icon": "TrendingDown"
+    }
+  ]
+}

@@ -27,9 +27,8 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 py-24 md:py-32">
         <div className="max-w-2xl">
 
-          <h1 className="mb-6 font-heading text-4xl font-extrabold leading-tight text-primary-foreground md:text-6xl">
-            Soluções profissionais com{" "}
-            <span className="text-accent">qualidade e confiança</span>
+          <h1 className="mb-6 font-heading text-4xl font-extrabold leading-tight text-primary-foreground md:text-6xl lg:text-7xl">
+            Reduza sua conta de luz em <span className="text-accent italic">até 95%</span>
           </h1>
           <p className="mb-10 max-w-xl text-lg text-primary-foreground/85 md:text-xl">
             {heroData.subtitle}
