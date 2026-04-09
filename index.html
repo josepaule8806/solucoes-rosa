@@ -15,10 +15,24 @@
     <meta name="twitter:title" content="Soluções Rosa | Elétrica, Solar e Reformas">
     <meta name="twitter:description" content="Excelência em instalações elétricas e energia solar em Porto Alegre e região.">
     <meta name="twitter:image" content="/og-image.png">
+    
+    <!-- Script necessário para o login do CMS e confirmação de e-mail -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>
