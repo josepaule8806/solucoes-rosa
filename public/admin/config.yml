@@ -30,6 +30,8 @@ collections:
   - name: "services"
     label: "Serviços"
     folder: "src/content/services"
+    extension: "json"
+    format: "json"
     create: true
     slug: "{{title}}"
     fields:
@@ -43,8 +45,10 @@ collections:
   - name: "portfolio"
     label: "Portfólio"
     folder: "src/content/portfolio"
+    extension: "json"
+    format: "json"
     create: true
-    slug: "{{title}}"
+    slug: "{{serviceTitle}}-{{clientName}}"
     fields:
       - { label: "Título do Serviço", name: "serviceTitle", widget: "string" }
       - { label: "Cliente", name: "clientName", widget: "string" }
