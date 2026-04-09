@@ -5,6 +5,7 @@ import logo from "@/assets/logo.png";
 import WhatsAppButton from "./WhatsAppButton";
 
 const navLinks = [
+  { href: "#solucao", label: "Solução" },
   { href: "#servicos", label: "Serviços" },
   { href: "/portfolio", label: "Portfólio", isRoute: true },
   { href: "#faq", label: "FAQ" },

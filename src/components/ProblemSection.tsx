@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import sectionsData from "@/content/sections.json";
 
@@ -40,6 +41,25 @@ const ProblemSection = () => {
             </div>
           </ScrollReveal>
         </div>
+        <ScrollReveal delay={400}>
+          <div className="mt-20 rounded-3xl bg-primary p-8 md:p-12 text-center text-primary-foreground shadow-elevated relative overflow-hidden">
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
+            <div className="relative z-10">
+              <h3 className="mb-4 font-heading text-2xl font-bold md:text-3xl">
+                A boa notícia? Você não precisa mais ser refém.
+              </h3>
+              <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/80">
+                A solução definitiva para os aumentos abusivos está literalmente acima da sua cabeça. Transforme seu telhado em uma usina de lucro e liberdade.
+              </p>
+              <a 
+                href="#solucao" 
+                className="inline-flex items-center gap-2 font-heading font-bold text-accent hover:text-accent/80 transition-colors uppercase tracking-wider text-sm"
+              >
+                Veja como garantimos sua economia <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
