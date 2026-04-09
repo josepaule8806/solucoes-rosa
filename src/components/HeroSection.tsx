@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import heroData from "@/content/hero.json";
-import logo from "@/assets/logo.png";
+
 import WhatsAppButton from "./WhatsAppButton";
 
 const HeroSection = () => {
@@ -26,7 +26,7 @@ const HeroSection = () => {
 
       <div className="relative z-10 container mx-auto px-6 py-24 md:py-32">
         <div className="max-w-2xl">
-          <img src={logo} alt="Rosa Soluções" className="mb-8 h-20 w-auto md:h-28" />
+
           <h1 className="mb-6 font-heading text-4xl font-extrabold leading-tight text-primary-foreground md:text-6xl">
             Soluções profissionais com{" "}
             <span className="text-accent">qualidade e confiança</span>
